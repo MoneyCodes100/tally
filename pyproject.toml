@@ -1,0 +1,31 @@
+[build-system]
+requires = ["scikit-build-core>=0.10", "pybind11>=2.13"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "tally"
+version = "0.1.0"
+description = "Streaming sketches with a C++ core and a Python API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Arowolo All" }]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: C++",
+  "Programming Language :: Python :: 3",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+tally = "tally.cli:main"
+
+[tool.scikit-build]
+minimum-version = "0.10"
+cmake.build-type = "Release"
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]
